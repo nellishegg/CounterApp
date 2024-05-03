@@ -18,25 +18,25 @@ class CounterPage {
     private val resetButtonUi =  ResetButtonUi(rootIdMatcher = rootIdMatcher, rootClassMatcher = rootClassMatcher)
 
     fun checkInitialState() {
-        textUi.InitialState()
-        incrementButtonUi.InitialState()
-        resetButtonUi.InitialState()
+        textUi.checkInitialState()
+        incrementButtonUi.checkInitialState()
+        resetButtonUi.checkInitialState()
     }
 
     fun clickIncrementButton() {
         incrementButtonUi.click()
     }
 
-    fun checkIncrementState() {
-        textUi.IncrementState()
-        incrementButtonUi.IncrementState()
-        resetButtonUi.IncrementState()
+    fun checkIncrementState(click:Int) {
+        textUi.checkIncrementState(click)
+        incrementButtonUi.checkIncrementState()
+        resetButtonUi.checkIncrementState()
     }
 
     fun checkResetState() {
-        textUi.ResetState()
-        incrementButtonUi.ResetState()
-        resetButtonUi.ResetState()
+        textUi.checkResetState()
+        incrementButtonUi.checkResetState()
+        resetButtonUi.checkResetState()
     }
 
     fun clickResetButton() {
