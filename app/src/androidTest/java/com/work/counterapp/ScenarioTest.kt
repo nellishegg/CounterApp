@@ -40,19 +40,15 @@ class ScenarioTest {
     fun testCase() = with(CounterPage()) {
         //0
         checkInitialState()
-
-        //1
-        clickIncrementButton()
-        checkIncrementState()
         activityScenarioRule.scenario.recreate()
-        checkIncrementState()
+        checkInitialState()
 
         //2
         repeat(9) {
             clickIncrementButton()
-            checkIncrementState()
+            checkIncrementState(it+1)
             activityScenarioRule.scenario.recreate()
-            checkIncrementState()
+            checkIncrementState(it+1)
         }
         //3
         clickIncrementButton()

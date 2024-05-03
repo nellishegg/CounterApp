@@ -1,6 +1,7 @@
 package com.work.counterapp
 
 import android.view.View
+import android.widget.Button
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
@@ -14,17 +15,16 @@ import org.hamcrest.Matchers.not
 
 class ResetButtonUi(rootIdMatcher: Matcher<View>, rootClassMatcher: Matcher<View>) {
 
-    val interaction = onView(
+   private val interaction = onView(
         allOf(
             withId(R.id.resetButton),
-            isAssignableFrom(TextInputLayout::class.java),
-            withParent(withId(R.id.customResetButton)),
+            isAssignableFrom(Button::class.java),
             rootIdMatcher,
             rootClassMatcher
         )
     )
 
-    fun InitialState() {
+    fun checkInitialState() {
        interaction.check(matches(not(isDisplayed())))
     }
 
@@ -32,12 +32,12 @@ class ResetButtonUi(rootIdMatcher: Matcher<View>, rootClassMatcher: Matcher<View
         interaction.perform(androidx.test.espresso.action.ViewActions.click())
     }
 
-    fun IncrementState() {
+    fun checkIncrementState() {
         interaction.check(matches(not(isDisplayed())))
 
     }
 
-    fun ResetState() {
+    fun checkResetState() {
         interaction.check(matches(isDisplayed()))
 
     }
