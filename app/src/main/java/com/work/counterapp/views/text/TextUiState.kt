@@ -16,7 +16,7 @@ interface TextUiState : Serializable {
         }
     }
 
-    object Initial : Abstract("0", R.color.green) {}
+    object Initial : Abstract("0", R.color.green)
     data class Increment(private val text: Int) : Abstract(text.toString(), R.color.black)
     object Reset : Abstract("10", R.color.red)
 }
