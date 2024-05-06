@@ -12,8 +12,10 @@ interface IncrementButtonUiState : Serializable {
             customIncrementButton.updateUi(enable)
         }
     }
-}
 
-object Initial : IncrementButtonUiState.Abstract()
-object Increment : IncrementButtonUiState.Abstract()
-object Reset : IncrementButtonUiState.Abstract(false)
+    object Initial : Abstract()
+
+    object Increment : Abstract()
+
+    object Reset : Abstract(false)
+}

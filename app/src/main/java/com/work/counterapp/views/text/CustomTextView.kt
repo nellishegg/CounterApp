@@ -25,7 +25,7 @@ class CustomTextView : androidx.appcompat.widget.AppCompatTextView, UpdateCustom
 
     override fun updateUi(text: String, color: Int) {
         setText(text)
-        this.resources.getColor(color)
+        setTextColor(resources.getColor(color))
     }
 
     override fun onSaveInstanceState(): Parcelable? {

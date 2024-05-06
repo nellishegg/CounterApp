@@ -39,9 +39,14 @@ class CustomIncrementButton : AppCompatButton, UpdateCustomIncrementButton {
         super.onRestoreInstanceState(restoredState.superState)
         updateUiState(restoredState.restore())
     }
+
+//    fun handleIncrementButton(counterViewModel: Actions): UiState {
+//        return uiState.handleAction(counterViewModel)
+//    }
 }
 
 interface UpdateCustomIncrementButton {
+
     fun updateUiState(outer: IncrementButtonUiState)
     fun updateUi(enable: Boolean)
 }

@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatButton
 
 class CustomResetButton : AppCompatButton, UpdateCustomResetButton {
 
-    private lateinit var uiState: ResetButton
+    private lateinit var uiState: ResetButtonUiState
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet)
@@ -18,7 +18,7 @@ class CustomResetButton : AppCompatButton, UpdateCustomResetButton {
         defStyleAttrs
     )
 
-    override fun updateUiState(outer: ResetButton) {
+    override fun updateUiState(outer: ResetButtonUiState) {
         uiState = outer
         uiState.update(this)
     }
@@ -40,9 +40,10 @@ class CustomResetButton : AppCompatButton, UpdateCustomResetButton {
         super.onRestoreInstanceState(restoredState.superState)
         updateUiState(restoredState.restore())
     }
+
 }
 
 interface UpdateCustomResetButton {
-    fun updateUiState(outer: ResetButton)
+    fun updateUiState(outer: ResetButtonUiState)
     fun updateUi(visibility: Boolean)
 }

@@ -8,18 +8,18 @@ import android.view.View
 
 class ResetButtonSaveState : View.BaseSavedState {
 
-    private lateinit var state: ResetButton
+    private lateinit var state: ResetButtonUiState
 
     constructor(superState: Parcelable) : super(superState)
 
     private constructor(parcelIn: Parcel) : super(parcelIn) {
         state = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             parcelIn.readSerializable(
-                ResetButton::class.java.classLoader,
-                ResetButton::class.java
-            ) as ResetButton
+                ResetButtonUiState::class.java.classLoader,
+                ResetButtonUiState::class.java
+            ) as ResetButtonUiState
         } else {
-            parcelIn.readSerializable() as ResetButton
+            parcelIn.readSerializable() as ResetButtonUiState
         }
     }
 
@@ -28,9 +28,9 @@ class ResetButtonSaveState : View.BaseSavedState {
         out.writeSerializable(state)
     }
 
-    fun restore(): ResetButton = state
+    fun restore(): ResetButtonUiState = state
 
-    fun save(uiState: ResetButton) {
+    fun save(uiState: ResetButtonUiState) {
         state = uiState
     }
 

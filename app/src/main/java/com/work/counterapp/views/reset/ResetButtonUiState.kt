@@ -2,18 +2,19 @@ package com.work.counterapp.views.reset
 
 import java.io.Serializable
 
-interface ResetButton : Serializable {
+interface ResetButtonUiState : Serializable {
 
     fun update(customResetButton: UpdateCustomResetButton)
 
-    abstract class Abstract(private val visibility: Boolean = false) : ResetButton {
+    abstract class Abstract(private val visibility: Boolean = false) : ResetButtonUiState {
 
         override fun update(customResetButton: UpdateCustomResetButton) {
             customResetButton.updateUi(visibility)
         }
     }
+
+    object Initial : Abstract()
+    object Increment : Abstract()
+    object Reset : Abstract(true)
 }
 
-object Initial : ResetButton.Abstract()
-object Increment : ResetButton.Abstract()
-object Reset : ResetButton.Abstract(true)
