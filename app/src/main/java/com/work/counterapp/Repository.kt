@@ -9,17 +9,18 @@ interface Repository {
     fun reset()
 
     class Base(
-        private var currentTimesClicked: IntCache
+        private val currentTimesClicked: IntCache,
+        private val max: Int = 10
     ) : Repository {
 
         override fun increment(): Int {
-            val currentTimes = 0
+            val currentTimes = currentTimesClicked.read()
             currentTimesClicked.save(currentTimes + 1)
             return currentTimes + 1
         }
 
         override fun isMax(): Boolean {
-            return currentTimesClicked.read() == 5
+            return currentTimesClicked.read() == max
         }
 
         override fun reset() {
